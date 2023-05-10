@@ -3,13 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
     //getRaces(2023);
     
 });
-document.getElementById("submit").addEventListener("submit", (e) => {
+
+const yearSelector = document.getElementById("year");
+const raceSelector = document.getElementById("race");
+
+document.getElementById("year-race-form").addEventListener("submit", (e) => {
     e.preventDefault();
+    let yearChoice = yearSelector.value;
+    let raceChoice = raceSelector.value;
+    fetch(`https://ergast.com/api/f1/${yearChoice}/${raceChoice}/results.json`)
+    .then(resp => resp.json())
+    .then(results => console.log(results.MRData.RaceTable.Races[0].Results))
 });
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
 function addYear() {
-    const yearSelector = document.getElementById("year");
+    
 
     for (let year = 2023; year > 1949; year--) {
         const yearOption = document.createElement("option");
@@ -29,8 +38,7 @@ function getRaces(year) {
     fetch(`https://ergast.com/api/f1/${year}.json`)
     .then(resp => resp.json())
     .then(rounds => {
-        let races = rounds.MRData.RaceTable.Races;
-        const raceSelector = document.getElementById("race");
+        let races = rounds.MRData.RaceTable.Races;        
         raceSelector.disabled = false;
         raceSelector.innerHTML = "";
         addRaces(races);
@@ -40,7 +48,6 @@ function getRaces(year) {
 /*Add races to the select a race dropdown based on what
 year is selected */
 function addRaces(races) {
-    const raceSelector = document.getElementById("race");
 
     for(let i = 0; i < races.length; i++) {
         const raceOption = document.createElement("option");
@@ -49,10 +56,6 @@ function addRaces(races) {
         raceSelector.appendChild(raceOption);
     }
     raceSelector.addEventListener("change", function() {
-        console.log(this.value);
+        //console.log(this.value);
     })
-}
-
-function handleSubmit(e) {
-    e.preventDefault();
 }
