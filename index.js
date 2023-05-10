@@ -20,7 +20,7 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
         
         raceResult.forEach(function(driver) {
             let result = document.createElement("div");
-            result.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName}` ;
+            result.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName} | ${driver.Constructor.name}` ;
             resultsSection.appendChild(result);
         })
     })
@@ -28,8 +28,6 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
 function addYear() {
-    
-
     for (let year = 2023; year > 1949; year--) {
         const yearOption = document.createElement("option");
         yearOption.value = year;
