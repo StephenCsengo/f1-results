@@ -6,16 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
 function addYear() {
-    const selector = document.getElementById("year");
+    const yearSelector = document.getElementById("year");
 
     for (let year = 2023; year > 1949; year--) {
-        const option = document.createElement("option");
-        option.value = year;
-        option.innerHTML= year;
-        selector.appendChild(option);
+        const yearOption = document.createElement("option");
+        yearOption.value = year;
+        yearOption.innerHTML= year;
+        yearSelector.appendChild(yearOption);
     }
     
-    selector.addEventListener('change', function() {
+    yearSelector.addEventListener("change", function() {
         getRaces(this.value);
     });
 }
@@ -27,6 +27,19 @@ function getRaces(year) {
     .then(resp => resp.json())
     .then(rounds => {
         let races = rounds.MRData.RaceTable.Races;
+        addRaces(races);
         console.log(races);
     })
+}
+
+
+function addRaces(races) {
+    const raceSelector = document.getElementById("race")
+
+    for(let i = 0; i < races.length; i++) {
+        const raceOption = document.createElement("option");
+        raceOption.value = races[i].round;
+        raceOption.innerHTML = races[i].raceName;
+        raceSelector.appendChild(raceOption);
+    }
 }
