@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     addYear();
-
+    getRaces(2023);
 });
 
 /*The addYear function adds the years of available data to
@@ -27,6 +27,8 @@ function getRaces(year) {
     .then(resp => resp.json())
     .then(rounds => {
         let races = rounds.MRData.RaceTable.Races;
+        const raceSelector = document.getElementById("race");
+        raceSelector.innerHTML = "";
         addRaces(races);
         console.log(races);
     })
@@ -34,7 +36,7 @@ function getRaces(year) {
 
 
 function addRaces(races) {
-    const raceSelector = document.getElementById("race")
+    const raceSelector = document.getElementById("race");
 
     for(let i = 0; i < races.length; i++) {
         const raceOption = document.createElement("option");
