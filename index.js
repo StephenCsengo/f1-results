@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     addYear();
-    getRaces(2023);
+    //getRaces(2023);
+    
 });
-
+document.getElementById("submit").addEventListener("submit", (e) => {
+    e.preventDefault();
+});
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
 function addYear() {
@@ -28,13 +31,14 @@ function getRaces(year) {
     .then(rounds => {
         let races = rounds.MRData.RaceTable.Races;
         const raceSelector = document.getElementById("race");
+        raceSelector.disabled = false;
         raceSelector.innerHTML = "";
         addRaces(races);
-        console.log(races);
     })
 }
 
-
+/*Add races to the select a race dropdown based on what
+year is selected */
 function addRaces(races) {
     const raceSelector = document.getElementById("race");
 
@@ -44,4 +48,11 @@ function addRaces(races) {
         raceOption.innerHTML = races[i].raceName;
         raceSelector.appendChild(raceOption);
     }
+    raceSelector.addEventListener("change", function() {
+        console.log(this.value);
+    })
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
 }
