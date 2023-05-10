@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     addYear();
+
 });
 
 /*The addYear function adds the years of available data to
@@ -13,11 +14,19 @@ function addYear() {
         option.innerHTML= year;
         selector.appendChild(option);
     }
+    
+    selector.addEventListener('change', function() {
+        getRaces(this.value);
+    });
 }
 
-function addRounds(year) {
+/*The getRaces function takes a year and accesses the Ergast API
+for that  year to get an array of races*/
+function getRaces(year) {
     fetch(`https://ergast.com/api/f1/${year}.json`)
     .then(resp => resp.json())
-    .then(rounds =>console.log(rounds))
+    .then(rounds => {
+        let races = rounds.MRData.RaceTable.Races;
+        console.log(races);
+    })
 }
-
