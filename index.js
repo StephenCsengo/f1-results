@@ -9,11 +9,21 @@ const raceSelector = document.getElementById("race");
 
 document.getElementById("year-race-form").addEventListener("submit", (e) => {
     e.preventDefault();
+    let resultsSection = document.getElementById("results");
     let yearChoice = yearSelector.value;
     let raceChoice = raceSelector.value;
+    resultsSection.innerHTML = "";
     fetch(`https://ergast.com/api/f1/${yearChoice}/${raceChoice}/results.json`)
     .then(resp => resp.json())
-    .then(results => console.log(results.MRData.RaceTable.Races[0].Results))
+    .then(results => {
+        let raceResult = results.MRData.RaceTable.Races[0].Results;
+        
+        raceResult.forEach(function(driver) {
+            let result = document.createElement("div");
+            result.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName}` ;
+            resultsSection.appendChild(result);
+        })
+    })
 });
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
