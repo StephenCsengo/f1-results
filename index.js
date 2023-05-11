@@ -11,7 +11,9 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
     let podiumSection = document.getElementById("podium");
     let yearChoice = yearSelector.value;
     let raceChoice = raceSelector.value;
+    document.getElementById("results").classList.remove("hidden");
     restSection.innerHTML = "";
+    
 
     fetch(`https://ergast.com/api/f1/${yearChoice}/${raceChoice}/results.json`)
     .then(resp => resp.json())
