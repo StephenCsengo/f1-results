@@ -1,10 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  addYear();
-});
-
 const yearSelector = document.getElementById("year");
 const raceSelector = document.getElementById("race");
-
+addYear();
 document.getElementById("year-race-form").addEventListener("submit", (e) => {
   e.preventDefault();
   let restSection = document.getElementById("rest-of-field");
@@ -30,7 +26,7 @@ function addYear() {
   for (let year = 2023; year > 1949; year--) {
     const yearOption = document.createElement("option");
     yearOption.value = year;
-    yearOption.innerHTML = year;
+    yearOption.innerText = year;
     yearSelector.appendChild(yearOption);
   }
 
@@ -47,7 +43,7 @@ function getRaces(year) {
     .then((rounds) => {
       let races = rounds.MRData.RaceTable.Races;
       raceSelector.disabled = false;
-      raceSelector.innerHTML = "";
+      raceSelector.innerText = "";
       addRaces(races);
     });
 }
@@ -58,7 +54,7 @@ function addRaces(races) {
   for (let i = 0; i < races.length; i++) {
     const raceOption = document.createElement("option");
     raceOption.value = races[i].round;
-    raceOption.innerHTML = races[i].raceName;
+    raceOption.innerText = races[i].raceName;
     raceSelector.appendChild(raceOption);
   }
 }
@@ -71,22 +67,46 @@ function createFieldResults(drivers) {
     const position = row.insertCell(0);
     const name = row.insertCell(1);
     const constructor = row.insertCell(2);
-    position.innerHTML = driver.position;
-    name.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
-    constructor.innerHTML = driver.Constructor.name;
+    position.innerText = driver.position;
+    name.innerText = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
+    constructor.innerText = driver.Constructor.name;
   });
 }
 function createPodiumResults(drivers) {
   const first = document.getElementById("first");
   const second = document.getElementById("second");
   const third = document.getElementById("third");
-  first.innerHTML = `<p class="first-place">1<sup>st</sup></p>
-    <p>${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}</p>
-    <p>${drivers[0].Constructor.name}</p>`;
-  second.innerHTML = `<p class="second-place">2<sup>nd</sup></p>
-    <p>${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}</p>
-    <p>${drivers[1].Constructor.name}</p>`;
-  third.innerHTML = `<p class = "third-place">3<sup>rd</sup>
-    <p>${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}</p>
-    <p>${drivers[2].Constructor.name}</p>`;
+
+  const firstPlace = document.createElement("p");
+  firstPlace.classList.add("first-place");
+  firstPlace.innerText = "1st";
+  const firstName = document.createElement("p");
+  firstName.innerText = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
+  const firstConstructor = document.createElement("p");
+  firstConstructor.innerText = drivers[0].Constructor.name;
+  first.appendChild(firstPlace);
+  first.appendChild(firstName);
+  first.appendChild(firstConstructor);
+
+  const secondPlace = document.createElement("p");
+  secondPlace.classList.add("second-place");
+  secondPlace.innerText = "2nd";
+  const secondName = document.createElement("p");
+  secondName.innerText = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
+  const secondConstructor = document.createElement("p");
+  secondConstructor.innerText = drivers[1].Constructor.name;
+  second.appendChild(secondPlace);
+  second.appendChild(secondName);
+  second.appendChild(secondConstructor);
+
+  const thirdPlace = document.createElement("p");
+  thirdPlace.classList.add("third-place");
+  thirdPlace.innerText = "3rd";
+  const thirdName = document.createElement("p");
+  thirdName.innerText = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
+  const thirdConstructor = document.createElement("p");
+  thirdConstructor.innerText = drivers[2].Constructor.name;
+  third.appendChild(thirdPlace);
+  third.appendChild(thirdName);
+  third.appendChild(thirdConstructor);
 }
