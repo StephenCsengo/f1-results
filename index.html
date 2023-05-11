@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>F1 Results by Round</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Formula 1 Results</h1>
-            <h3>View Race Results For Any Formula 1 Race</h3>
-        </header>
-        <form id="year-race-form">
-            <label for="year">Select A Year:</label>
-            <select id="year">
-                <option>Year</option>
-            </select>
-            <label for="race">Select A Race:</label>
-            <select disabled id="race">
-                <option>Select a Year First</option>
-            </select>
-            <button id="submit">Submit</button>
-        </form>
-        <div class="hidden" id="results">
-            <div id="podium">
-                <div id="second">
-
-                </div>
-                <div id="first">
-
-                </div>
-                
-                <div id="third">
-
-                </div>
-            </div>
-            <table>
-                <thead>
-                    <th>Place</th>
-                    <th>Driver</th>
-                    <th>Constructor</th>
-                </thead>
-                <tbody id="rest-of-field">
-
-                </tbody>
-            </table>
-
-        </div>
-        <script src="./index.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>F1 Results by Round</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Formula 1 Results</h1>
+      <h3>View Race Results For Any Formula 1 Race</h3>
+    </header>
+    <form id="year-race-form">
+      <label for="year">Select A Year:</label>
+      <select id="year">
+        <option>Year</option>
+      </select>
+      <label for="race">Select A Race:</label>
+      <select disabled id="race">
+        <option>Select a Year First</option>
+      </select>
+      <button id="submit">Submit</button>
+    </form>
+    <div class="hidden" id="results">
+      <div id="podium">
+        <div id="second"></div>
+        <div id="first"></div>
+        <div id="third"></div>
+      </div>
+      <table>
+        <thead>
+          <th>Place</th>
+          <th>Driver</th>
+          <th>Constructor</th>
+        </thead>
+        <tbody id="rest-of-field"></tbody>
+      </table>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 </html>

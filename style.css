@@ -1,69 +1,72 @@
 body {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    background: rgb(45,51,253);
-    background: linear-gradient(0deg, rgba(45,51,253,1) 0%, rgba(55,213,162,1) 100%);
-    background-attachment: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: rgb(45, 51, 253);
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 253, 1) 0%,
+    rgba(55, 213, 162, 1) 100%
+  );
+  background-attachment: fixed;
 }
 h1 {
-    color: white;
-    
+  color: white;
 }
 td {
-    border: 1px solid black;
-    padding: 10px 20px;
-  }
-  #podium {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
-    height: 250px;
-    color: white;
-  }
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+#podium {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  height: 250px;
+  color: white;
+}
 
-  #first {
-    width: 200px;
-    height: 175px;
-    background-color: blue;
-    border-radius: 4px 4px 0 0;
-  }
-  #second {
-    width: 200px;
-    height: 135px;
-    background-color: coral;
-    border-radius: 4px 4px 0 0;
-  }
-  #third {
-    width: 200px;
-    height: 115px;
-    background-color: green;
-    border-radius: 4px 4px 0 0;
-  }
-  .hidden {
-    display: none;
-  }
-  .first-place {
-    font-size: 50px;
-    margin: 0;
-  }
-  .first-place sup {
-    font-size: 25px;
-  }
-  .second-place {
-    font-size: 30px;
-    margin: 0;
-  }
-  .second-place sup {
-    font-size: 20px;
-  }
-  .third-place {
-    font-size: 25px;
-    margin: 0;
-  }
-  .third-place sup {
-    font-size: 18px;
-  }
+#first {
+  width: 200px;
+  height: 175px;
+  background-color: blue;
+  border-radius: 4px 4px 0 0;
+}
+#second {
+  width: 200px;
+  height: 135px;
+  background-color: coral;
+  border-radius: 4px 4px 0 0;
+}
+#third {
+  width: 200px;
+  height: 115px;
+  background-color: green;
+  border-radius: 4px 4px 0 0;
+}
+.hidden {
+  display: none;
+}
+.first-place {
+  font-size: 50px;
+  margin: 0;
+}
+.first-place sup {
+  font-size: 25px;
+}
+.second-place {
+  font-size: 30px;
+  margin: 0;
+}
+.second-place sup {
+  font-size: 20px;
+}
+.third-place {
+  font-size: 25px;
+  margin: 0;
+}
+.third-place sup {
+  font-size: 18px;
+}
