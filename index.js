@@ -1,6 +1,7 @@
 const yearSelector = document.getElementById("year");
 const raceSelector = document.getElementById("race");
 addYear();
+
 document.getElementById("year-race-form").addEventListener("submit", (e) => {
   e.preventDefault();
   let restSection = document.getElementById("rest-of-field");
@@ -22,7 +23,8 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
       const restOfField = raceResult.slice(3);
       createPodiumResults(topThree);
       createFieldResults(restOfField);
-    });
+    })
+    .catch((error) => console.log(error));
 });
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
@@ -52,7 +54,8 @@ function getRaces(year) {
       addRaces(races);
       button.disabled = false;
       button.classList.remove("disabled");
-    });
+    })
+    .catch((error) => console.log(error));
 }
 
 /*Add races to the select a race dropdown based on what
