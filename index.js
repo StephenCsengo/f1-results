@@ -136,6 +136,7 @@ function createRaceInfo(results) {
   const round = results.MRData.RaceTable.round;
   const raceName = results.MRData.RaceTable.Races[0].raceName;
   const circuitName = results.MRData.RaceTable.Races[0].Circuit.circuitName;
+  const circuitURL = results.MRData.RaceTable.Races[0].Circuit.url;
   const city = results.MRData.RaceTable.Races[0].Circuit.Location.locality;
   const country = results.MRData.RaceTable.Races[0].Circuit.Location.country;
   const date = results.MRData.RaceTable.Races[0].date;
