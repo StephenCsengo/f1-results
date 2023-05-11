@@ -22,9 +22,11 @@ h3 {
   color: #444;
 }
 table {
-  overflow-x: auto;
   width: 100%;
   padding-top: 20px;
+}
+tr:nth-of-type(odd) {
+  background-color: rgb(223, 223, 223);
 }
 td {
   padding: 10px 20px;
@@ -110,4 +112,14 @@ button:hover {
 }
 .third-place sup {
   font-size: 18px;
+}
+@media (max-width: 768px) {
+  section {
+    width: 80%;
+  }
+}
+@media (max-width: 400px) {
+  section {
+    width: 90%;
+  }
 }
