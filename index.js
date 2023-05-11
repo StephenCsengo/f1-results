@@ -82,7 +82,7 @@ function createPodiumResults(drivers) {
     const first = document.getElementById("first");
     const second = document.getElementById("second");
     const third = document.getElementById("third");
-    first.innerHTML =`<p class="first-place"><sup>st</sup></p>
+    first.innerHTML =`<p class="first-place">1<sup>st</sup></p>
     <p>${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}</p>
     <p>${drivers[0].Constructor.name}</p>`
     second.innerHTML =`<p class="second-place">2<sup>nd</sup></p>
