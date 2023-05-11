@@ -19,12 +19,8 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
         const raceResult = results.MRData.RaceTable.Races[0].Results;
         const topThree = raceResult.slice(0,3);
         const restOfField = raceResult.slice(3);
+        createPodiumResults(topThree);
         createFieldResults(restOfField);
-        /*topThree.forEach(function(driver) {
-            let result = document.createElement("div");
-            result.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName} | ${driver.Constructor.name}` ;
-            podiumSection.appendChild(result);
-        })*/
     })
 });
 /*The addYear function adds the years of available data to
@@ -78,4 +74,16 @@ function createFieldResults(drivers) {
         name.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
         constructor.innerHTML = driver.Constructor.name;
     });
+}
+
+function createPodiumResults(drivers) {
+    const first = document.getElementById("first");
+    const second = document.getElementById("second");
+    const third = document.getElementById("third");
+    first.innerHTML =`<p>${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}</p>
+    <p>${drivers[0].Constructor.name}</p>`
+    second.innerHTML =`<p>${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}</p>
+    <p>${drivers[1].Constructor.name}</p>`
+    third.innerHTML =`<p>${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}</p>
+    <p>${drivers[2].Constructor.name}</p>`
 }
