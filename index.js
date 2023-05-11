@@ -24,11 +24,6 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
             let result = document.createElement("div");
             result.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName} | ${driver.Constructor.name}` ;
             podiumSection.appendChild(result);
-        })
-        restOfField.forEach(function(driver) {
-            let result = document.createElement("div");
-            result.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName} | ${driver.Constructor.name}` ;
-            restSection.appendChild(result);
         })*/
     })
 });
@@ -74,13 +69,13 @@ function addRaces(races) {
 function createFieldResults(drivers) {
     const table = document.getElementById("rest-of-field");
     
-    for(let i = 0; i < drivers.length; i++) {
+    drivers.forEach(function(driver) {
         const row = table.insertRow(-1);
         const position = row.insertCell(0);
         const name = row.insertCell(1);
         const constructor = row.insertCell(2);
-        position.innerHTML = drivers[i].position;
-        name.innerHTML = `${drivers[i].Driver.givenName} ${drivers[i].Driver.familyName}`;
-        constructor.innerHTML = drivers[i].Constructor.name;
-    }
+        position.innerHTML = driver.position;
+        name.innerHTML = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
+        constructor.innerHTML = driver.Constructor.name;
+    });
 }
