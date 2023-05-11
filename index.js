@@ -140,7 +140,19 @@ function createRaceInfo(results) {
   const city = results.MRData.RaceTable.Races[0].Circuit.Location.locality;
   const country = results.MRData.RaceTable.Races[0].Circuit.Location.country;
   const date = results.MRData.RaceTable.Races[0].date;
-  const raceInfo = document.getElementById("raceInfo");
+  const seasonInfo = document.getElementById("season");
+  const roundInfo = document.getElementById("round");
+  const nameInfo = document.getElementById("name");
+  const circuitInfo = document.getElementById("circuit");
+  const locationInfo = document.getElementById("location");
+  const dateInfo = document.getElementById("date");
 
-  raceInfo.innerText = `Round ${round} of the ${year} season. ${raceName} at ${circuitName} in ${city}, ${country} on ${date}.`;
+  seasonInfo.innerText = year;
+  roundInfo.innerText = round;
+  nameInfo.innerText = raceName;
+  circuitInfo.innerText = circuitName;
+  locationInfo.innerText = `${city}, ${country}`;
+  dateInfo.innerText = date;
+
+  //raceInfo.innerText = `Round ${round} of the ${year} season. ${raceName} at ${circuitName} in ${city}, ${country} on ${date}.`;
 }
