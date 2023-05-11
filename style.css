@@ -12,19 +12,19 @@ td {
 
   #first {
     width: 200px;
-    height: 200px;
+    height: 140px;
     background-color: blue;
     border-radius: 4px 4px 0 0;
   }
   #second {
     width: 200px;
-    height: 150px;
+    height: 95px;
     background-color: coral;
     border-radius: 4px 4px 0 0;
   }
   #third {
     width: 200px;
-    height: 100px;
+    height: 80px;
     background-color: green;
     border-radius: 4px 4px 0 0;
   }
