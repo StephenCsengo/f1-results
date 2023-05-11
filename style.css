@@ -18,7 +18,11 @@ body {
 h1 {
   color: #e10600;
 }
+h3 {
+  color: #444;
+}
 table {
+  overflow-x: auto;
   width: 100%;
   padding-top: 20px;
 }
@@ -30,6 +34,14 @@ section {
   width: 50%;
   margin: auto;
   padding: 10px 20px 30px 20px;
+  border-radius: 5px;
+}
+form div {
+  margin: 15px;
+}
+form select {
+  margin: 5px;
+  padding: 5px 0;
   border-radius: 5px;
 }
 button {

@@ -18,14 +18,18 @@
         <h3>View Results From Any Formula 1 Race</h3>
       </header>
       <form id="year-race-form">
-        <label for="year">Select A Year:</label>
-        <select id="year">
-          <option>Year</option>
-        </select>
-        <label for="race">Select A Race:</label>
-        <select disabled id="race">
-          <option>Select a Year First</option>
-        </select>
+        <div>
+          <label for="year">Select A Year:</label>
+          <select id="year">
+            <option>Year</option>
+          </select>
+        </div>
+        <div>
+          <label for="race">Select A Race:</label>
+          <select disabled id="race">
+            <option>Select a Year First</option>
+          </select>
+        </div>
         <button id="submit">Submit</button>
       </form>
       <div class="hidden" id="results">
