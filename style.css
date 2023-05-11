@@ -114,7 +114,13 @@ button:hover {
   font-size: 18px;
 }
 .disabled {
+  cursor: default;
   opacity: 40%;
+}
+@media (max-width: 1168px) {
+  section {
+    width: 70%;
+  }
 }
 @media (max-width: 768px) {
   section {

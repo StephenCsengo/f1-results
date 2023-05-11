@@ -10,11 +10,13 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
   let third = document.getElementById("third");
   let yearChoice = yearSelector.value;
   let raceChoice = raceSelector.value;
+
   document.getElementById("results").classList.remove("hidden");
   restSection.innerText = "";
   removeAllChildNodes(first);
   removeAllChildNodes(second);
   removeAllChildNodes(third);
+
   fetch(`https://ergast.com/api/f1/${yearChoice}/${raceChoice}/results.json`)
     .then((resp) => resp.json())
     .then((results) => {
@@ -23,9 +25,11 @@ document.getElementById("year-race-form").addEventListener("submit", (e) => {
       const restOfField = raceResult.slice(3);
       createPodiumResults(topThree);
       createFieldResults(restOfField);
+      createRaceInfo(results);
     })
     .catch((error) => console.log(error));
 });
+
 /*The addYear function adds the years of available data to
 the select a year portion of the form*/
 function addYear() {
@@ -82,6 +86,7 @@ function createFieldResults(drivers) {
     constructor.innerText = driver.Constructor.name;
   });
 }
+
 function createPodiumResults(drivers) {
   const first = document.getElementById("first");
   const second = document.getElementById("second");
@@ -125,4 +130,20 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
+}
+function createRaceInfo(results) {
+  const year = results.MRData.RaceTable.season;
+  const round = results.MRData.RaceTable.round;
+  const raceName = results.MRData.RaceTable.Races[0].raceName;
+  const circuitName = results.MRData.RaceTable.Races[0].Circuit.circuitName;
+  const city = results.MRData.RaceTable.Races[0].Circuit.Location.locality;
+  const country = results.MRData.RaceTable.Races[0].Circuit.Location.country;
+  const date = results.MRData.RaceTable.Races[0].date;
+  console.log(year);
+  console.log(round);
+  console.log(raceName);
+  console.log(circuitName);
+  console.log(city);
+  console.log(country);
+  console.log(date);
 }
