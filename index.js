@@ -4,12 +4,16 @@ addYear();
 document.getElementById("year-race-form").addEventListener("submit", (e) => {
   e.preventDefault();
   let restSection = document.getElementById("rest-of-field");
-  let podiumSection = document.getElementById("podium");
+  let first = document.getElementById("first");
+  let second = document.getElementById("second");
+  let third = document.getElementById("third");
   let yearChoice = yearSelector.value;
   let raceChoice = raceSelector.value;
   document.getElementById("results").classList.remove("hidden");
-  restSection.innerHTML = "";
-
+  restSection.innerText = "";
+  removeAllChildNodes(first);
+  removeAllChildNodes(second);
+  removeAllChildNodes(third);
   fetch(`https://ergast.com/api/f1/${yearChoice}/${raceChoice}/results.json`)
     .then((resp) => resp.json())
     .then((results) => {
@@ -109,4 +113,10 @@ function createPodiumResults(drivers) {
   third.appendChild(thirdPlace);
   third.appendChild(thirdName);
   third.appendChild(thirdConstructor);
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
