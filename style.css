@@ -32,6 +32,20 @@ section {
   padding: 10px 20px 30px 20px;
   border-radius: 5px;
 }
+button {
+  color: white;
+  background-color: #e10600;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #a90804;
+  transition: 0.3s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #a90804;
+}
 #podium {
   display: flex;
   flex-direction: row;
