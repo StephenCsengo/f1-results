@@ -46,9 +46,12 @@ function getRaces(year) {
     .then((resp) => resp.json())
     .then((rounds) => {
       let races = rounds.MRData.RaceTable.Races;
+      let button = document.querySelector("button");
       raceSelector.disabled = false;
       raceSelector.innerText = "";
       addRaces(races);
+      button.disabled = false;
+      button.classList.remove("disabled");
     });
 }
 

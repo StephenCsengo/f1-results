@@ -113,6 +113,9 @@ button:hover {
 .third-place sup {
   font-size: 18px;
 }
+.disabled {
+  opacity: 40%;
+}
 @media (max-width: 768px) {
   section {
     width: 80%;
