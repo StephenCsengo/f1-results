@@ -24,8 +24,9 @@ h3 {
 table {
   width: 100%;
   padding-top: 20px;
+  border-spacing: 0;
 }
-tr:nth-of-type(odd) {
+tr:nth-of-type(even) {
   background-color: rgb(223, 223, 223);
 }
 td {
@@ -85,7 +86,7 @@ button:hover {
 #first {
   width: 200px;
   height: 175px;
-  background-color: #f3c352;
+  background-color: #e5b440;
   border-radius: 4px 4px 0 0;
 }
 #second {
