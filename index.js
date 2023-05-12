@@ -142,6 +142,7 @@ function createRaceInfo(results) {
   const dateInfo = document.getElementById("date");
 
   circuitInfo.innerText = circuitName;
+  circuitInfo.href = circuitURL;
   locationInfo.innerText = `${city}, ${country}`;
   dateInfo.innerText = date;
 }
