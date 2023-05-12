@@ -1,5 +1,7 @@
 const yearSelector = document.getElementById("year");
 const raceSelector = document.getElementById("race");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
 addYear();
 
 document.getElementById("year-race-form").addEventListener("submit", (e) => {
@@ -81,9 +83,34 @@ function createFieldResults(drivers) {
     const position = row.insertCell(0);
     const name = row.insertCell(1);
     const constructor = row.insertCell(2);
+    const driverName = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
     position.innerText = driver.position;
-    name.innerText = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
+    name.innerText = driverName;
     name.setAttribute("id", `${driver.Driver.driverId}`);
+    name.setAttribute("class", "driver");
+    name.addEventListener("click", (e) => {
+      fetch(`https://ergast.com/api/f1/drivers/${e.target.id}.json`)
+        .then((resp) => resp.json())
+        .then((driverData) => {
+          const driverDOB =
+            driverData.MRData.DriverTable.Drivers[0].dateOfBirth;
+          const driverNat =
+            driverData.MRData.DriverTable.Drivers[0].nationality;
+          const driverURL = driverData.MRData.DriverTable.Drivers[0].url;
+          document.getElementById("driverName").innerText = driverName;
+          document.getElementById(
+            "driverDOB"
+          ).innerText = `Date of birth: ${driverDOB}`;
+          document.getElementById(
+            "driverNat"
+          ).innerText = `Nationality: ${driverNat}`;
+          driverWiki = document.getElementById("driverWiki");
+          driverWiki.innerText = `${driverName} Wikipedia`;
+          driverWiki.href = driverURL;
+
+          openModal();
+        });
+    });
     constructor.innerText = driver.Constructor.name;
   });
 }
@@ -99,6 +126,7 @@ function createPodiumResults(drivers) {
   const firstName = document.createElement("p");
   firstName.innerText = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
   firstName.setAttribute("id", `${drivers[0].Driver.driverId}`);
+
   const firstConstructor = document.createElement("p");
   firstConstructor.innerText = drivers[0].Constructor.name;
   first.appendChild(firstPlace);
@@ -111,6 +139,7 @@ function createPodiumResults(drivers) {
   const secondName = document.createElement("p");
   secondName.innerText = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
   secondName.setAttribute("id", `${drivers[1].Driver.driverId}`);
+  secondName.setAttribute("class", "driver");
   const secondConstructor = document.createElement("p");
   secondConstructor.innerText = drivers[1].Constructor.name;
   second.appendChild(secondPlace);
@@ -123,6 +152,7 @@ function createPodiumResults(drivers) {
   const thirdName = document.createElement("p");
   thirdName.innerText = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
   thirdName.setAttribute("id", `${drivers[2].Driver.driverId}`);
+  thirdName.setAttribute("class", "driver");
   const thirdConstructor = document.createElement("p");
   thirdConstructor.innerText = drivers[2].Constructor.name;
   third.appendChild(thirdPlace);
@@ -155,3 +185,15 @@ function createRaceInfo(results) {
   dateInfo.innerText = date;
   dateInfo.href = raceURL;
 }
+function createModalContent(e) {}
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+const modalClick = function () {};
+overlay.addEventListener("click", closeModal);
+document.querySelector(".btn-close").addEventListener("click", closeModal);
