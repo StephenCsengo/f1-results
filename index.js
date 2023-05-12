@@ -134,8 +134,11 @@ function removeAllChildNodes(parent) {
 function createRaceInfo(results) {
   const circuitName = results.MRData.RaceTable.Races[0].Circuit.circuitName;
   const circuitURL = results.MRData.RaceTable.Races[0].Circuit.url;
+  const raceURL = results.MRData.RaceTable.Races[0].url;
   const city = results.MRData.RaceTable.Races[0].Circuit.Location.locality;
   const country = results.MRData.RaceTable.Races[0].Circuit.Location.country;
+  const lat = results.MRData.RaceTable.Races[0].Circuit.Location.lat;
+  const long = results.MRData.RaceTable.Races[0].Circuit.Location.long;
   const date = results.MRData.RaceTable.Races[0].date;
   const circuitInfo = document.getElementById("circuit");
   const locationInfo = document.getElementById("location");
@@ -144,5 +147,7 @@ function createRaceInfo(results) {
   circuitInfo.innerText = circuitName;
   circuitInfo.href = circuitURL;
   locationInfo.innerText = `${city}, ${country}`;
+  locationInfo.href = `https://www.google.com/maps/search/?api=1&query=${lat},${long}`;
   dateInfo.innerText = date;
+  dateInfo.href = raceURL;
 }
