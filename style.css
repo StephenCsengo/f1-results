@@ -42,7 +42,7 @@ td {
   padding: 10px 20px;
 }
 section {
-  width: 50%;
+  width: 60%;
   margin: auto;
   padding: 10px 20px 30px 20px;
   border-radius: 5px;
@@ -62,7 +62,7 @@ button {
   background-color: #e10600;
   padding: 10px;
   border-radius: 5px;
-  border-width: 2px;
+  border-width: 1px;
   border-style: solid;
   border-color: #a90804;
   transition: 0.3s;
