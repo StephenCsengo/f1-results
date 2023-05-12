@@ -117,10 +117,28 @@ function createPodiumResults(drivers) {
   const firstPlace = document.createElement("p");
   firstPlace.classList.add("first-place");
   firstPlace.innerText = "1st";
+  const firstDriverName = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
   const firstName = document.createElement("p");
-  firstName.innerText = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
+  firstName.innerText = firstDriverName;
   firstName.setAttribute("id", `${drivers[0].Driver.driverId}`);
   firstName.setAttribute("class", "driver");
+  firstName.addEventListener("click", () => {
+    const driverDOB = drivers[0].Driver.dateOfBirth;
+    const driverNat = drivers[0].Driver.nationality;
+    const driverURL = drivers[0].Driver.url;
+    document.getElementById("driverName").innerText = firstDriverName;
+    document.getElementById(
+      "driverDOB"
+    ).innerText = `Date of birth: ${driverDOB}`;
+    document.getElementById(
+      "driverNat"
+    ).innerText = `Nationality: ${driverNat}`;
+    driverWiki = document.getElementById("driverWiki");
+    driverWiki.innerText = `${firstDriverName} Wikipedia`;
+    driverWiki.href = driverURL;
+
+    openModal();
+  });
   const firstConstructor = document.createElement("p");
   firstConstructor.innerText = drivers[0].Constructor.name;
   first.appendChild(firstPlace);
@@ -131,9 +149,27 @@ function createPodiumResults(drivers) {
   secondPlace.classList.add("second-place");
   secondPlace.innerText = "2nd";
   const secondName = document.createElement("p");
-  secondName.innerText = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
+  secondDriverName = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
+  secondName.innerText = secondDriverName;
   secondName.setAttribute("id", `${drivers[1].Driver.driverId}`);
   secondName.setAttribute("class", "driver");
+  secondName.addEventListener("click", () => {
+    const driverDOB = drivers[1].Driver.dateOfBirth;
+    const driverNat = drivers[1].Driver.nationality;
+    const driverURL = drivers[1].Driver.url;
+    document.getElementById("driverName").innerText = secondDriverName;
+    document.getElementById(
+      "driverDOB"
+    ).innerText = `Date of birth: ${driverDOB}`;
+    document.getElementById(
+      "driverNat"
+    ).innerText = `Nationality: ${driverNat}`;
+    driverWiki = document.getElementById("driverWiki");
+    driverWiki.innerText = `${secondDriverName} Wikipedia`;
+    driverWiki.href = driverURL;
+
+    openModal();
+  });
   const secondConstructor = document.createElement("p");
   secondConstructor.innerText = drivers[1].Constructor.name;
   second.appendChild(secondPlace);
@@ -144,9 +180,27 @@ function createPodiumResults(drivers) {
   thirdPlace.classList.add("third-place");
   thirdPlace.innerText = "3rd";
   const thirdName = document.createElement("p");
-  thirdName.innerText = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
+  thirdDriverName = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
+  thirdName.innerText = thirdDriverName;
   thirdName.setAttribute("id", `${drivers[2].Driver.driverId}`);
   thirdName.setAttribute("class", "driver");
+  thirdName.addEventListener("click", () => {
+    const driverDOB = drivers[1].Driver.dateOfBirth;
+    const driverNat = drivers[1].Driver.nationality;
+    const driverURL = drivers[1].Driver.url;
+    document.getElementById("driverName").innerText = thirdDriverName;
+    document.getElementById(
+      "driverDOB"
+    ).innerText = `Date of birth: ${driverDOB}`;
+    document.getElementById(
+      "driverNat"
+    ).innerText = `Nationality: ${driverNat}`;
+    driverWiki = document.getElementById("driverWiki");
+    driverWiki.innerText = `${thirdDriverName} Wikipedia`;
+    driverWiki.href = driverURL;
+
+    openModal();
+  });
   const thirdConstructor = document.createElement("p");
   thirdConstructor.innerText = drivers[2].Constructor.name;
   third.appendChild(thirdPlace);
