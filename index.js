@@ -84,26 +84,15 @@ function createFieldResults(drivers) {
     const name = row.insertCell(1);
     const constructor = row.insertCell(2);
     const driverName = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
+    const driverDOB = driver.Driver.dateOfBirth;
+    const driverNat = driver.Driver.nationality;
+    const driverURL = driver.Driver.url;
     position.innerText = driver.position;
     name.innerText = driverName;
     name.setAttribute("id", `${driver.Driver.driverId}`);
     name.setAttribute("class", "driver");
-    name.addEventListener("click", () => {
-      const driverDOB = driver.Driver.dateOfBirth;
-      const driverNat = driver.Driver.nationality;
-      const driverURL = driver.Driver.url;
-      document.getElementById("driverName").innerText = driverName;
-      document.getElementById(
-        "driverDOB"
-      ).innerText = `Date of birth: ${driverDOB}`;
-      document.getElementById(
-        "driverNat"
-      ).innerText = `Nationality: ${driverNat}`;
-      driverWiki = document.getElementById("driverWiki");
-      driverWiki.innerText = `${driverName} Wikipedia`;
-      driverWiki.href = driverURL;
-
-      openModal();
+    name.addEventListener("click", function () {
+      modalClick(driverName, driverDOB, driverNat, driverURL);
     });
     constructor.innerText = driver.Constructor.name;
   });
@@ -118,26 +107,15 @@ function createPodiumResults(drivers) {
   firstPlace.classList.add("first-place");
   firstPlace.innerText = "1st";
   const firstDriverName = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
+  const firstDriverDOB = drivers[0].Driver.dateOfBirth;
+  const firstDriverNat = drivers[0].Driver.nationality;
+  const firstDriverURL = drivers[0].Driver.url;
   const firstName = document.createElement("p");
   firstName.innerText = firstDriverName;
   firstName.setAttribute("id", `${drivers[0].Driver.driverId}`);
   firstName.setAttribute("class", "driver");
-  firstName.addEventListener("click", () => {
-    const driverDOB = drivers[0].Driver.dateOfBirth;
-    const driverNat = drivers[0].Driver.nationality;
-    const driverURL = drivers[0].Driver.url;
-    document.getElementById("driverName").innerText = firstDriverName;
-    document.getElementById(
-      "driverDOB"
-    ).innerText = `Date of birth: ${driverDOB}`;
-    document.getElementById(
-      "driverNat"
-    ).innerText = `Nationality: ${driverNat}`;
-    driverWiki = document.getElementById("driverWiki");
-    driverWiki.innerText = `${firstDriverName} Wikipedia`;
-    driverWiki.href = driverURL;
-
-    openModal();
+  firstName.addEventListener("click", function () {
+    modalClick(firstDriverName, firstDriverDOB, firstDriverNat, firstDriverURL);
   });
   const firstConstructor = document.createElement("p");
   firstConstructor.innerText = drivers[0].Constructor.name;
@@ -149,26 +127,20 @@ function createPodiumResults(drivers) {
   secondPlace.classList.add("second-place");
   secondPlace.innerText = "2nd";
   const secondName = document.createElement("p");
-  secondDriverName = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
+  const secondDriverName = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
+  const secondDriverDOB = drivers[1].Driver.dateOfBirth;
+  const secondDriverNat = drivers[1].Driver.nationality;
+  const secondDriverURL = drivers[1].Driver.url;
   secondName.innerText = secondDriverName;
   secondName.setAttribute("id", `${drivers[1].Driver.driverId}`);
   secondName.setAttribute("class", "driver");
-  secondName.addEventListener("click", () => {
-    const driverDOB = drivers[1].Driver.dateOfBirth;
-    const driverNat = drivers[1].Driver.nationality;
-    const driverURL = drivers[1].Driver.url;
-    document.getElementById("driverName").innerText = secondDriverName;
-    document.getElementById(
-      "driverDOB"
-    ).innerText = `Date of birth: ${driverDOB}`;
-    document.getElementById(
-      "driverNat"
-    ).innerText = `Nationality: ${driverNat}`;
-    driverWiki = document.getElementById("driverWiki");
-    driverWiki.innerText = `${secondDriverName} Wikipedia`;
-    driverWiki.href = driverURL;
-
-    openModal();
+  secondName.addEventListener("click", function () {
+    modalClick(
+      secondDriverName,
+      secondDriverDOB,
+      secondDriverNat,
+      secondDriverURL
+    );
   });
   const secondConstructor = document.createElement("p");
   secondConstructor.innerText = drivers[1].Constructor.name;
@@ -180,26 +152,15 @@ function createPodiumResults(drivers) {
   thirdPlace.classList.add("third-place");
   thirdPlace.innerText = "3rd";
   const thirdName = document.createElement("p");
-  thirdDriverName = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
+  const thirdDriverName = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
+  const thirdDriverDOB = drivers[2].Driver.dateOfBirth;
+  const thirdDriverNat = drivers[2].Driver.nationality;
+  const thirdDriverURL = drivers[2].Driver.url;
   thirdName.innerText = thirdDriverName;
   thirdName.setAttribute("id", `${drivers[2].Driver.driverId}`);
   thirdName.setAttribute("class", "driver");
-  thirdName.addEventListener("click", () => {
-    const driverDOB = drivers[1].Driver.dateOfBirth;
-    const driverNat = drivers[1].Driver.nationality;
-    const driverURL = drivers[1].Driver.url;
-    document.getElementById("driverName").innerText = thirdDriverName;
-    document.getElementById(
-      "driverDOB"
-    ).innerText = `Date of birth: ${driverDOB}`;
-    document.getElementById(
-      "driverNat"
-    ).innerText = `Nationality: ${driverNat}`;
-    driverWiki = document.getElementById("driverWiki");
-    driverWiki.innerText = `${thirdDriverName} Wikipedia`;
-    driverWiki.href = driverURL;
-
-    openModal();
+  thirdName.addEventListener("click", function () {
+    modalClick(thirdDriverName, thirdDriverDOB, thirdDriverNat, thirdDriverURL);
   });
   const thirdConstructor = document.createElement("p");
   thirdConstructor.innerText = drivers[2].Constructor.name;
@@ -233,7 +194,7 @@ function createRaceInfo(results) {
   dateInfo.innerText = date;
   dateInfo.href = raceURL;
 }
-function createModalContent(e) {}
+//function createModalContent(e) {}
 const openModal = function () {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
@@ -242,6 +203,17 @@ const closeModal = function () {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
-const modalClick = function () {};
+function modalClick(driverName, driverDOB, driverNat, driverURL) {
+  document.getElementById("driverName").innerText = driverName;
+  document.getElementById(
+    "driverDOB"
+  ).innerText = `Date of birth: ${driverDOB}`;
+  document.getElementById("driverNat").innerText = `Nationality: ${driverNat}`;
+  driverWiki = document.getElementById("driverWiki");
+  driverWiki.innerText = `${driverName} Wikipedia`;
+  driverWiki.href = driverURL;
+
+  openModal();
+}
 overlay.addEventListener("click", closeModal);
 document.querySelector(".btn-close").addEventListener("click", closeModal);
