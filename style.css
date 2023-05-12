@@ -135,8 +135,8 @@ button:hover {
 .raceInfo h4 {
   margin: 5px;
 }
-.raceInfo p,
-a {
+.raceInfo a {
+  display: inline-block;
   margin: 10px 0;
 }
 @media (max-width: 1168px) {
