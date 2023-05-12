@@ -83,6 +83,7 @@ function createFieldResults(drivers) {
     const constructor = row.insertCell(2);
     position.innerText = driver.position;
     name.innerText = `${driver.Driver.givenName} ${driver.Driver.familyName}`;
+    name.setAttribute("id", `${driver.Driver.driverId}`);
     constructor.innerText = driver.Constructor.name;
   });
 }
@@ -97,6 +98,7 @@ function createPodiumResults(drivers) {
   firstPlace.innerText = "1st";
   const firstName = document.createElement("p");
   firstName.innerText = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
+  firstName.setAttribute("id", `${drivers[0].Driver.driverId}`);
   const firstConstructor = document.createElement("p");
   firstConstructor.innerText = drivers[0].Constructor.name;
   first.appendChild(firstPlace);
@@ -108,6 +110,7 @@ function createPodiumResults(drivers) {
   secondPlace.innerText = "2nd";
   const secondName = document.createElement("p");
   secondName.innerText = `${drivers[1].Driver.givenName} ${drivers[1].Driver.familyName}`;
+  secondName.setAttribute("id", `${drivers[1].Driver.driverId}`);
   const secondConstructor = document.createElement("p");
   secondConstructor.innerText = drivers[1].Constructor.name;
   second.appendChild(secondPlace);
@@ -119,6 +122,7 @@ function createPodiumResults(drivers) {
   thirdPlace.innerText = "3rd";
   const thirdName = document.createElement("p");
   thirdName.innerText = `${drivers[2].Driver.givenName} ${drivers[2].Driver.familyName}`;
+  thirdName.setAttribute("id", `${drivers[2].Driver.driverId}`);
   const thirdConstructor = document.createElement("p");
   thirdConstructor.innerText = drivers[2].Constructor.name;
   third.appendChild(thirdPlace);
