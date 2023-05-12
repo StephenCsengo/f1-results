@@ -26,6 +26,8 @@ a {
   text-decoration-color: #999999;
   text-decoration-thickness: 2px;
   transition: 0.3s;
+  display: inline-block;
+  margin: 10px 0;
 }
 a:hover {
   text-decoration-color: #e10600;
@@ -140,10 +142,7 @@ button:hover {
 .raceInfo h4 {
   margin: 5px;
 }
-.raceInfo a {
-  display: inline-block;
-  margin: 10px 0;
-}
+
 .modal {
   display: flex;
   align-items: center;
@@ -164,6 +163,7 @@ button:hover {
 .btn-close {
   padding: 5px;
   border-radius: 5px;
+  margin-top: 10px;
 }
 .overlay {
   position: fixed;

@@ -126,7 +126,7 @@ function createPodiumResults(drivers) {
   const firstName = document.createElement("p");
   firstName.innerText = `${drivers[0].Driver.givenName} ${drivers[0].Driver.familyName}`;
   firstName.setAttribute("id", `${drivers[0].Driver.driverId}`);
-
+  firstName.setAttribute("class", "driver");
   const firstConstructor = document.createElement("p");
   firstConstructor.innerText = drivers[0].Constructor.name;
   first.appendChild(firstPlace);
