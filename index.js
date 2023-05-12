@@ -88,28 +88,22 @@ function createFieldResults(drivers) {
     name.innerText = driverName;
     name.setAttribute("id", `${driver.Driver.driverId}`);
     name.setAttribute("class", "driver");
-    name.addEventListener("click", (e) => {
-      fetch(`https://ergast.com/api/f1/drivers/${e.target.id}.json`)
-        .then((resp) => resp.json())
-        .then((driverData) => {
-          const driverDOB =
-            driverData.MRData.DriverTable.Drivers[0].dateOfBirth;
-          const driverNat =
-            driverData.MRData.DriverTable.Drivers[0].nationality;
-          const driverURL = driverData.MRData.DriverTable.Drivers[0].url;
-          document.getElementById("driverName").innerText = driverName;
-          document.getElementById(
-            "driverDOB"
-          ).innerText = `Date of birth: ${driverDOB}`;
-          document.getElementById(
-            "driverNat"
-          ).innerText = `Nationality: ${driverNat}`;
-          driverWiki = document.getElementById("driverWiki");
-          driverWiki.innerText = `${driverName} Wikipedia`;
-          driverWiki.href = driverURL;
+    name.addEventListener("click", () => {
+      const driverDOB = driver.Driver.dateOfBirth;
+      const driverNat = driver.Driver.nationality;
+      const driverURL = driver.Driver.url;
+      document.getElementById("driverName").innerText = driverName;
+      document.getElementById(
+        "driverDOB"
+      ).innerText = `Date of birth: ${driverDOB}`;
+      document.getElementById(
+        "driverNat"
+      ).innerText = `Nationality: ${driverNat}`;
+      driverWiki = document.getElementById("driverWiki");
+      driverWiki.innerText = `${driverName} Wikipedia`;
+      driverWiki.href = driverURL;
 
-          openModal();
-        });
+      openModal();
     });
     constructor.innerText = driver.Constructor.name;
   });
