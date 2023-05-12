@@ -21,6 +21,15 @@ h1 {
 h3 {
   color: #444;
 }
+a {
+  color: black;
+  text-decoration-color: #999999;
+  text-decoration-thickness: 2px;
+  transition: 0.3s;
+}
+a:hover {
+  text-decoration-color: #e10600;
+}
 table {
   width: 100%;
   padding-top: 20px;
