@@ -38,3 +38,8 @@ The results will be displayed below this information, in a stylized podium for t
 Clicking on a driver's name will bring up a modal with further information on the driver, as well as a link to the driver's Wikipedia page.
 
 ![image](https://github.com/StephenCsengo/f1-results/assets/81661222/504433cf-093e-4b9b-937e-5dca9496a561)
+
+## Acknowledgments
+
+[Ergast Developer API](http://ergast.com/mrd/)
+[CSS Gradient](https://cssgradient.io/)
