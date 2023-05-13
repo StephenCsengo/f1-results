@@ -6,12 +6,12 @@ addYear();
 
 document.getElementById("year-race-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  let restSection = document.getElementById("rest-of-field");
-  let first = document.getElementById("first");
-  let second = document.getElementById("second");
-  let third = document.getElementById("third");
-  let yearChoice = yearSelector.value;
-  let raceChoice = raceSelector.value;
+  const restSection = document.getElementById("rest-of-field");
+  const first = document.getElementById("first");
+  const second = document.getElementById("second");
+  const third = document.getElementById("third");
+  const yearChoice = yearSelector.value;
+  const raceChoice = raceSelector.value;
 
   document.getElementById("results").classList.remove("hidden");
   restSection.innerText = "";
@@ -53,8 +53,8 @@ function getRaces(year) {
   fetch(`https://ergast.com/api/f1/${year}.json`)
     .then((resp) => resp.json())
     .then((rounds) => {
-      let races = rounds.MRData.RaceTable.Races;
-      let button = document.querySelector("button");
+      const races = rounds.MRData.RaceTable.Races;
+      const button = document.querySelector("button");
       raceSelector.disabled = false;
       raceSelector.innerText = "";
       addRaces(races);
@@ -194,7 +194,7 @@ function createRaceInfo(results) {
   dateInfo.innerText = date;
   dateInfo.href = raceURL;
 }
-//function createModalContent(e) {}
+
 const openModal = function () {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
