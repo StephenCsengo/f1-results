@@ -23,6 +23,7 @@ The project includes a comprehensive collection of Formula 1 race results from m
 The project utilizes JavaScript to manipulate this data into the DOM in an organized fashion.
 
 ## Usage
+
 To begin, a year is selected and the list of races will be dynamically filled with the races from that year.
 
 ![image](https://github.com/StephenCsengo/f1-results/assets/81661222/312e7bad-3d82-4e6a-9f14-8c6f462ab818)
@@ -31,7 +32,7 @@ Select a race and click submit, information on the race will appear first, and i
 
 ![image](https://github.com/StephenCsengo/f1-results/assets/81661222/4ce3db16-3c16-43df-81c2-4592a3f862d0)
 
-The results will be displayed below this information, in a stylized podium for the top 3 and in table format for the rest of the field. 
+The results will be displayed below this information, in a stylized podium for the top 3 and in table format for the rest of the field.
 
 ![image](https://github.com/StephenCsengo/f1-results/assets/81661222/6aaee4a1-d3b3-4df6-95ed-c1c56dad9e60)
 
@@ -42,4 +43,5 @@ Clicking on a driver's name will bring up a modal with further information on th
 ## Acknowledgments
 
 [Ergast Developer API](http://ergast.com/mrd/)
+
 [CSS Gradient](https://cssgradient.io/)
