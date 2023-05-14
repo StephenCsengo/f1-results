@@ -67,12 +67,12 @@ function getRaces(year) {
 /*Add races to the select a race dropdown based on what
 year is selected */
 function addRaces(races) {
-  for (let i = 0; i < races.length; i++) {
+  races.forEach(function (race) {
     const raceOption = document.createElement("option");
-    raceOption.value = races[i].round;
-    raceOption.innerText = races[i].raceName;
+    raceOption.value = race.round;
+    raceOption.innerText = race.raceName;
     raceSelector.appendChild(raceOption);
-  }
+  });
 }
 
 function createFieldResults(drivers) {
