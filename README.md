@@ -1,6 +1,6 @@
 # Formula 1 Race Results
 
-Welcome to the Formula 1 Race Results project! This project is designed to provide Formula 1 race results from any year of competition. It aims to be a valuable tool any F1 enthusiast.
+Welcome to the Formula 1 Race Results project! This project is designed to provide Formula 1 race results from any year of competition. It aims to be a valuable tool for any F1 enthusiast.
 
 ## About
 
